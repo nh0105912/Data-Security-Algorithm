@@ -71,8 +71,8 @@ public class HillCipher {
         if (det < 0) det += MOD;
 
         int invDet = modInverse(det);
-        if (invDet == -1) {
-            throw new IllegalArgumentException("Key matrix is not invertible (det has no inverse mod 26).");
+        if ((invDet == -1) || (invDet % 2==0)) {
+            throw new IllegalArgumentException("Key matrix is not invertible (det has no inverse mod 26) OR the determinat is even.");
         }
 
         int[][] inv = new int[2][2];
